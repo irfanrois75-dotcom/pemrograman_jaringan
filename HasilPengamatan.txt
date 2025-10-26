@@ -1,0 +1,33 @@
+“Pada percobaan ini dilakukan perbandingan antara implementasi single-threaded server-client dan multithreaded server-client. Tujuan pengujian adalah untuk mengetahui perbedaan performa, efisiensi, dan kompleksitas antara keduanya.”
+Analisa dan Komparasi Multithread vs Single Thread (Server–Client)
+
+1. Pengertian Singkat
+
+Single Thread:
+Server hanya dapat menangani satu request pada satu waktu,Request lain harus menunggu hingga request sebelumnya selesai,Cocok untuk sistem sederhana atau beban ringan.
+Multithread:
+Server dapat menangani banyak request secara bersamaan dengan membuat thread baru untuk tiap client,Cocok untuk sistem dengan banyak client atau beban tinggi.
+
+2. Perbandingan Teknis
+Aspek			 	 Single Thread				 		Multithread
+Kemampuan menangani client 	> Hanya 1 client pada satu waktu			> Banyak client secara bersamaan
+Kinerja (Performance) 		> Lambat jika banyak client				> Cepat, karena proses paralel
+Kompleksitas kode		> Lebih sederhana					> Lebih kompleks karena sinkronisasi thread
+Penggunaan CPU			> Rendah, tapi tidak efisien untuk banyak client	> Lebih tinggi, namun efisien untuk banyak client
+Responsivitas			> Client lain harus menunggu				> Semua client bisa dilayani bersamaan
+Kesesuaian penggunaan		> Aplikasi kecil, testing dasar				> Aplikasi besar, server nyata (chat, web, API)
+
+3. Hasil Uji Coba (Contoh)
+
+Kasus Uji:
+Client mengirim 10 request ke server.
+Hasil Pengamatan:
+Single Thread:
+Request dijalankan satu per satu,Total waktu eksekusi lebih lama,Client lain baru dilayani setelah request sebelumnya selesai.
+
+Multithread:
+Semua request diproses hampir bersamaan,Waktu total jauh lebih cepat,Server terlihat lebih responsif dan efisien.
+
+4. Kesimpulan
+Single Thread: cocok untuk simulasi sederhana, mudah dibuat, tapi tidak efisien untuk banyak client.
+Multithread: performa jauh lebih baik untuk beban banyak, namun perlu penanganan lebih hati-hati terhadap thread dan sinkronisasi data.
